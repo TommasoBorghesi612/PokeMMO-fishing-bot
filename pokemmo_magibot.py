@@ -3,7 +3,6 @@ from PIL import Image, ImageChops
 import numpy as np
 import time
 import random
-from pynput.keyboard import Key, Controller
 
 ref_images_keys = ['male_1', 'male_10', 'nibble', 'landed', 'end_balls']
 reference_images_path = ['images/male_1_symbol.png', 'images/male_10_symbol.png', 'images/nibble_symbol.png', 'images/landed_symbol.png', 'images/end_balls_symbol.png']
@@ -45,14 +44,6 @@ def main():
         'safari_start' : (960, 770)
     }
 
-    # ref_images_coords = {
-    #     'male_1' : (454, 153, 462, 167),
-    #     'male_10' : (463, 153, 471, 167),
-    #     'nibble' : (689, 141, 783, 161),
-    #     'landed' : (671, 138, 789, 161),
-    #     'run' : (539, 740, 682, 774)
-    # }
-
     ref_images_coords = {
         'male_1' : (454, 153, 9, 15),
         'male_10' : (463, 153, 9, 15),
@@ -61,18 +52,6 @@ def main():
         'end_balls' : (560, 141, 170, 26)
     }
     
-    os_keyboard = {
-        'up' : (1626, 1000),
-        'left' : (1596, 1924),
-        'down' : (1626, 1924),
-        'right' : (1660, 1924)
-    }
-
-    # asd = pyautogui.screenshot(region=(0, 0, 1920, 1080))
-    # asd.save('keyboard_ref.png')
-    # assert 1 == 0
-    keyboard = Controller()
-
     max_diff = 35
     reference_images = [Image.open(rip) for rip in reference_images_path]
     reference_images = [image.convert("RGB") for image in reference_images]
@@ -197,7 +176,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
-# 3 s up
-# 0.5 s right
-# 0.5 s up
